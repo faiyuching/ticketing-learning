@@ -11,7 +11,7 @@ router.post('/api/orders', requireAuth, [
         .isEmpty()
         .custom((input: string) => mongoose.Types.ObjectId.isValid(input))
         .withMessage('TicketId must be provided')
-], async (req: Request, res: Response) => {
+], validateRequest, async (req: Request, res: Response) => {
     res.send({})
 })
 
